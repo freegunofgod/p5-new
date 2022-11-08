@@ -10,6 +10,9 @@ switch ($page) {
     case 'home':
         $controller->homePage();
         break;
+    case 'login':
+        $controller->login();
+        break;
     default:
         $controller->homePage();
 }
