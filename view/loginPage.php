@@ -4,9 +4,7 @@ $title = "Login page";
 
 ob_start();
 
-?>
-
-<?php if(!isset($loggedUser)){ ?>
+if(!isset($loggedUser)){ ?>
   <section class="gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
