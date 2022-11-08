@@ -2,6 +2,7 @@
 
 class UserManager {
     public function getUser(){
+        
         $user = [
             'login' => 'root',
             'password' => 'root',

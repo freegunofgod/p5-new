@@ -20,26 +20,26 @@ ob_start();
               <p class="text-white-50 mb-5">Please enter your login and password</p>
 
               <div class="form-outline form-white mb-4">
-              <form method="POST" action="login/connectUser">
-                <label class="form-label" for="typeEmailX">Login</label>
-                <input type="text" id="login" name="login" class="form-control form-control-lg my-2" />
-                </div>
-
-                <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">Password</label>
-                <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg my-2" />
-                </div>
-
-                <p class="small mb-5 pb-lg-2 text-center"><a class="text-white-50" href="#!">Forgot password?</a></p>
-
-                <?php if(isset($errorMessage)) : ?>
-                  <div class="alert alert-danger" role="alert">
-                      <?php echo $errorMessage; ?>
+                <form method="POST" action="">
+                  <label class="form-label" for="typeEmailX">Login</label>
+                  <input type="text" id="login" name="login" class="form-control form-control-lg my-2" />
                   </div>
-                <?php endif; ?>
 
-                <p class="small mb-5 pb-lg-2 text-center"><button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button></p>
-              </form>
+                  <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">Password</label>
+                  <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg my-2" />
+                  </div>
+
+                  <p class="small mb-5 pb-lg-2 text-center"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+                  <?php if(isset($errorMessage)) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $errorMessage; ?>
+                    </div>
+                  <?php endif; ?>
+
+                  <p class="small mb-5 pb-lg-2 text-center"><button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button></p>
+                </form>
           </div>
 
               <div>
