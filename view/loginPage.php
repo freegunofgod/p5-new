@@ -64,7 +64,7 @@ if(!isset($loggedUser)){ ?>
               <div class="mb-md-5 mt-md-4 pb-5">
 
                 <h2 class="fw-bold mb-2 text-uppercase">Login Page</h2>
-                <p class="text-white-50 mb-5">Vous êtes connecté</p>
+                <p class="text-white-50 mb-5">Vous êtes connecté en tant que <?= $loggedUser['email'] ?></p>
 
                 <div class="form-outline form-white mb-4">
               </div>

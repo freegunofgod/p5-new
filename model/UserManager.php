@@ -7,6 +7,7 @@ class UserManager {
             'password' => 'root',
             'email' => 'user@email.fr',
         ];
+        
         return $user;
     }
 }
