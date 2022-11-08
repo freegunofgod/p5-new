@@ -21,13 +21,13 @@ ob_start();
 
               <div class="form-outline form-white mb-4">
                 <form method="POST" action="">
-                  <label class="form-label" for="typeEmailX">Login</label>
-                  <input type="text" id="login" name="login" class="form-control form-control-lg my-2" />
-                  </div>
-
                   <div class="form-outline form-white mb-4">
-                  <label class="form-label" for="typePasswordX">Password</label>
-                  <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg my-2" />
+                    <label class="form-label" for="typeEmailX">Login</label>
+                    <input type="text" id="login" name="login" class="form-control form-control-lg my-2" />
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typePasswordX">Password</label>
+                    <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg my-2" />
                   </div>
 
                   <p class="small mb-5 pb-lg-2 text-center"><a class="text-white-50" href="#!">Forgot password?</a></p>
