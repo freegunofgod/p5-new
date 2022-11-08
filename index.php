@@ -1,8 +1,7 @@
 <?php
+//index.php
 
 require 'controller/Controller.php';
-
-//index.php
 
 $page = $_GET['action'] ?? 'home';
 $controller = new Controller();
