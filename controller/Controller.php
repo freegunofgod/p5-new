@@ -1,6 +1,6 @@
 <?php
 
-use UserManager;
+require_once 'model/UserManager.php';
 
 class Controller {
     public function homePage(){
