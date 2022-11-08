@@ -26,8 +26,9 @@ class Controller {
                 );
             }
         }
-
-    
         require 'view/loginPage.php';
+    }
+    public function createAccount(){
+        require 'view/createAccountPage.php';
     }
 }

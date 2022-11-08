@@ -13,6 +13,9 @@ switch ($page) {
     case 'login':
         $controller->login();
         break;
+    case 'createAccount':
+        $controller->createAccount();
+        break;
     default:
         $controller->homePage();
 }
