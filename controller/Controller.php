@@ -5,6 +5,6 @@ class Controller {
         require 'view/homePage.php';
     }
     public function login(){
-        require 'view/login.php';
+        require 'view/loginPage.php';
     }
 }
