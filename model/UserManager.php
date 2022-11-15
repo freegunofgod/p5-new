@@ -4,7 +4,12 @@ require_once('DbManager.php');
 
 class UserManager extends DbManager {
     public function getUser(){
-       //get a new user
+        //Get connect with database //SQL search
+        $sql = $this->Dbconnect()->prepare("SELECT * FROM user WHERE login= ? AND password= ?");
+        //Execture Query with fake data
+        $sql->execute(array('root','root'));
+        
+        return $sql->fetch();
     }
 
     public function createUser(){
