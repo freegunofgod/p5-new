@@ -4,6 +4,7 @@ $title = "Account Creation Page";
 
 ob_start();
 
+var_dump($message);
 ?>
 
 <section class="gradient-custom">

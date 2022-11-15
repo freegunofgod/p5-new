@@ -38,7 +38,7 @@ class Controller {
             $userManager = new UserManager();
 
             try{
-                $userManager->createUser($email, $login, $password);
+                $userManager->createUser($login,$password,$email);
             }catch (PDOException $e) {
                 echo 'Échec lors de la création de votre compte : ' . $e->getMessage();
             }

@@ -14,15 +14,15 @@ class UserManager extends DbManager {
 
     public function createUser($login,$password,$email){
 
-        $sql = $this->db->prepare("SELECT * FROM users WHERE username = ?");
+        $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE login = ?");
         $sql->execute(array($login));
         $rowCountSql = $sql->rowCount();
 
         if ($rowCountSql == 0) {
 
             //Get connect with database //SQL search
-            $sql = $this->Dbconnect()->prepare("INSERT INTO user (login,password,email) values(?, ?, ?)");
-            //Execture Query with fake data
+            $sql = $this->Dbconnect()->prepare("INSERT INTO users (login,password,email) values(?, ?, ?)");
+            //Execture Query
             $sql->execute(array($login,$password,$email));
 
             $message = 'Votre compte a bien été crée :)';
