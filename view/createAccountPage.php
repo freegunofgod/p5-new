@@ -3,13 +3,6 @@
 $title = "Account Creation Page";
 
 ob_start();
-
-if(isset($error)){
-  var_dump($error);
-}elseif(isset($success)){
-  var_dump($success);
-}
-
 ?>
 
 <section class="gradient-custom">
@@ -18,6 +11,23 @@ if(isset($error)){
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
           <div class="card-body p-5">
+
+            <?php if (isset($error)): ?>
+              
+              <div class="alert alert-danger" role="alert">
+                  <span><?= $error ?></span>
+              </div>
+      
+            <?php elseif (isset($success)): ?>
+      
+              <div class="alert alert-success" role="alert">
+                  <span><?= $success ?></span>
+                  <br>    
+                  <a href="index.php?action=login" class="btn-back-index"><i class="fal fa-hand-point-right"></i> Redirection vers la page de connexion</a>
+              </div>
+      
+                  
+            <?php endif ?>
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
