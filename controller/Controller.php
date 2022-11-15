@@ -28,21 +28,10 @@ class Controller {
         }
         require 'view/loginPage.php';
     }
-    public function createAccount(){
-        if(isset($_POST['login']) && isset($_POST['password'])  && isset($_POST['email'])){
+    public function createUser($login,$password,$email){
 
-            $email    = $_POST['email'];
-            $login    = $_POST['login'];
-            $password = $_POST['password'];
-
-            $userManager = new UserManager();
-
-            try{
-                $userManager->createUser($login,$password,$email);
-            }catch (PDOException $e) {
-                echo 'Échec lors de la création de votre compte : ' . $e->getMessage();
-            }
-        }
-        require 'view/createAccountPage.php';
+        $userManager = new UserManager();
+        $userManager->createUser($login,$password,$email);
+        
     }
 }

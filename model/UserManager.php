@@ -3,6 +3,7 @@
 require_once('DbManager.php');
 
 class UserManager extends DbManager {
+
     public function getUser($login, $password){
         //Get connect with database //SQL search
         $sql = $this->Dbconnect()->prepare("SELECT * FROM user WHERE login= ? AND password= ?");
@@ -25,11 +26,11 @@ class UserManager extends DbManager {
             //Execture Query
             $sql->execute(array($login,$password,$email));
 
-            $message = 'Votre compte a bien été crée :)';
+            $success = 'Votre compte a bien été crée :)';
             require('./view/createAccountPage.php');
 
         } else {
-            $message = 'Ce nom d\'utilisateur est déjà pris :(';
+            $error = 'Ce nom d\'utilisateur est déjà pris :(';
             require('./view/createAccountPage.php');
         }
     }

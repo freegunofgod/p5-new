@@ -4,7 +4,12 @@ $title = "Account Creation Page";
 
 ob_start();
 
-var_dump($message);
+if(isset($error)){
+  var_dump($error);
+}elseif(isset($success)){
+  var_dump($success);
+}
+
 ?>
 
 <section class="gradient-custom">
