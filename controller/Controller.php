@@ -6,28 +6,30 @@ class Controller {
     public function homePage(){
         require 'view/homePage.php';
     }
-    public function login(){
-        if(isset($_POST['login']) && isset($_POST['password'])){
+    //Incorrect using of controler
+    public function login($login, $password){
 
-            $login = $_POST['login'];
-            $password = $_POST['password'];
+        $userManager = new UserManager();
+        $user = $userManager->getUser($login, $password);
 
-            $userManager = new UserManager();
-            $user = $userManager->getUser($login, $password);
+        if ($user === false) {
+            $errorMessage = 'Nom d\'utilisateur et/ou mot de passe incorrect :(';
+            require('view/frontend/loginView.php');
 
-            if ($user['login'] === $login && $user['password'] ===  $password) {
-                $loggedUser = [
-                    'email' => $user['email'],
-                ];
-            } else {
-                $errorMessage = sprintf('Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',
-                    $_POST['email'],
-                    $_POST['password']
-                );
-            }
+        }else {
+
+            $_SESSION['login'] = $user['login'];
+            $_SESSION['status'] = 'connect';
+
+            $loggedUser = [
+                'email' => $user['email'],
+                'login' => $user['login'],
+            ];
+
         }
         require 'view/loginPage.php';
     }
+    //Correcte using of controller
     public function createUser($login,$password,$email){
 
         $userManager = new UserManager();
