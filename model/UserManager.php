@@ -12,8 +12,13 @@ class UserManager extends DbManager {
         return $sql->fetch();
     }
 
-    public function createUser(){
-        //create a new user
+    public function createUser($login,$password,$email){
+         //Get connect with database //SQL search
+         $sql = $this->Dbconnect()->prepare("INSERT INTO user (login,password,email) values(?, ?, ?)");
+         //Execture Query with fake data
+         $sql->execute(array($login,$password,$email));
+         
+         return $sql->fetch();
     }
 
     public function deleteUser(){
