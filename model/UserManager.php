@@ -15,6 +15,10 @@ class UserManager extends DbManager {
 
     public function createUser($login,$password,$email){
 
+        $login = htmlspecialchars( $login );
+        $password = htmlspecialchars($password);
+        $email = htmlspecialchars($email);
+
         $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE login = ?");
         $sql->execute(array($login));
         $rowCountSqlLogin = $sql->rowCount();

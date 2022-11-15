@@ -15,14 +15,9 @@ switch ($page) {
         break;
     case 'createAccount':
         if(!$_POST){
-
             require('./view/createAccountPage.php');
-
         }else{
-
             $controller->createUser($_POST['login'],$_POST['password'],$_POST['email']);
-            require('./view/createAccountPage.php');
-
         }
         break;
     default:
