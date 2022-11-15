@@ -20,6 +20,9 @@ switch ($page) {
             $controller->createUser($_POST['login'],$_POST['password'],$_POST['email']);
         }
         break;
+    case 'dashboard':
+        require('./view/dashboard.php');
+        break;
     default:
         $controller->homePage();
 }
