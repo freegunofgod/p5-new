@@ -29,6 +29,20 @@ class Controller {
         require 'view/loginPage.php';
     }
     public function createAccount(){
+        if(isset($_POST['login']) && isset($_POST['password'])  && isset($_POST['email'])){
+
+            $email    = $_POST['email'];
+            $login    = $_POST['login'];
+            $password = $_POST['password'];
+
+            $userManager = new UserManager();
+
+            try{
+                $userManager->createUser($email, $login, $password);
+            }catch (PDOException $e) {
+                echo 'Échec lors de la création de votre compte : ' . $e->getMessage();
+            }
+        }
         require 'view/createAccountPage.php';
     }
 }
