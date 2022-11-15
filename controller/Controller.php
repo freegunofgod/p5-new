@@ -13,7 +13,7 @@ class Controller {
             $password = $_POST['password'];
 
             $userManager = new UserManager();
-            $user = $userManager->getUser();
+            $user = $userManager->getUser($login, $password);
 
             if ($user['login'] === $login && $user['password'] ===  $password) {
                 $loggedUser = [
