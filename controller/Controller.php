@@ -6,7 +6,6 @@ class Controller {
     public function homePage(){
         require 'view/homePage.php';
     }
-    //Incorrect using of controler
     public function login($login, $password){
 
         $userManager = new UserManager();
@@ -25,9 +24,7 @@ class Controller {
                 'email' => $user['email'],
                 'login' => $user['login'],
             ];
-
         }
-        require 'view/loginPage.php';
     }
     //Correcte using of controller
     public function createUser($login,$password,$email){

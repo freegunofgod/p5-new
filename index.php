@@ -11,7 +11,11 @@ switch ($page) {
         $controller->homePage();
         break;
     case 'login':
-        $controller->login();
+        if(!$_POST){
+            require('./view/loginPage.php');
+        }else{
+            $controller->login($_POST['login'],$_POST['password']);
+        }
         break;
     case 'createAccount':
         if(!$_POST){

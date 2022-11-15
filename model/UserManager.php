@@ -4,6 +4,39 @@ require_once('DbManager.php');
 
 class UserManager extends DbManager {
 
+    function verificationLabelPresent($input, $colonne){
+        $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE ? = ?");
+        $sql->execute(array($colonne, $input));
+        $rowCountSql = $sql->rowCount();
+
+        //if rowCountSQL > 0
+
+            //Checking wich column we check
+
+            //If email --> error email
+            //return error email message
+
+            //If login --> error login
+            //return error login message
+        
+        //Else --> return success
+        //A faire sous forme de fonction
+        // $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE login = ?");
+        // $sql->execute(array($login));
+        // $rowCountSqlLogin = $sql->rowCount();
+
+        // $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE email = ?");
+        // $sql->execute(array($email));
+        // $rowCountSqlEmail = $sql->rowCount();
+
+        // if ($rowCountSqlEmail != 0){
+        //     $error = 'Cette email est déjà pris :(';
+        //     require('./view/createAccountPage.php');
+        // }elseif($rowCountSqlLogin != 0) {
+        //     $error = 'Ce nom d\'utilisateur est déjà pris :(';
+        //     require('./view/createAccountPage.php');
+    }
+
     public function getUser($login, $password){
 
         //Get connect with database //SQL search
@@ -21,29 +54,18 @@ class UserManager extends DbManager {
         $password = htmlspecialchars($password);
         $email = htmlspecialchars($email);
 
-        $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE login = ?");
-        $sql->execute(array($login));
-        $rowCountSqlLogin = $sql->rowCount();
-
-        $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE email = ?");
-        $sql->execute(array($email));
-        $rowCountSqlEmail = $sql->rowCount();
-
-        if ($rowCountSqlEmail != 0){
-            $error = 'Cette email est déjà pris :(';
-            require('./view/createAccountPage.php');
-        }elseif($rowCountSqlLogin != 0) {
-            $error = 'Ce nom d\'utilisateur est déjà pris :(';
-            require('./view/createAccountPage.php');
-        }else{
+        // Using verificationLabelPresent --> return
+        //if success
             //Get connect with database //SQL search
             $sql = $this->Dbconnect()->prepare("INSERT INTO users (login,password,email) values(?, ?, ?)");
             //Execture Query
             $sql->execute(array($login,$password,$email));
 
             $success = 'Votre compte a bien été crée :)';
-            require('./view/createAccountPage.php');
-        }
+        //If failure
+            //Sending error message
+
+        require('./view/createAccountPage.php');
     }
 
     public function deleteUser(){
