@@ -13,12 +13,25 @@ class UserManager extends DbManager {
     }
 
     public function createUser($login,$password,$email){
-         //Get connect with database //SQL search
-         $sql = $this->Dbconnect()->prepare("INSERT INTO user (login,password,email) values(?, ?, ?)");
-         //Execture Query with fake data
-         $sql->execute(array($login,$password,$email));
-         
-         return $sql->fetch();
+
+        $sql = $this->db->prepare("SELECT * FROM users WHERE username = ?");
+        $sql->execute(array($login));
+        $rowCountSql = $sql->rowCount();
+
+        if ($rowCountSql == 0) {
+
+            //Get connect with database //SQL search
+            $sql = $this->Dbconnect()->prepare("INSERT INTO user (login,password,email) values(?, ?, ?)");
+            //Execture Query with fake data
+            $sql->execute(array($login,$password,$email));
+
+            $message = 'Votre compte a bien été crée :)';
+            require('./view/createAccountPage.php');
+
+        } else {
+            $message = 'Ce nom d\'utilisateur est déjà pris :(';
+            require('./view/createAccountPage.php');
+        }
     }
 
     public function deleteUser(){
