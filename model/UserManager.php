@@ -39,11 +39,17 @@ class UserManager extends DbManager {
 
     public function getUser($login, $password){
 
-        //Get connect with database //SQL search
+        try{
+            //Get connect with database //SQL search
         $sql = $this->Dbconnect()->prepare("SELECT * FROM users WHERE login=? and password=?");
 
         //Execture Query with fake data
         $sql->execute(array($login,$password));
+
+        // throw new Exception('Error de connexion modèle  UserManager');
+        }catch(Exception $e){
+            echo('error' . $e->getMessage());
+        }
         
         return $sql->fetch();
     }

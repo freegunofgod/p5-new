@@ -14,7 +14,12 @@ switch ($page) {
         if(!$_POST){
             require('./view/loginPage.php');
         }else{
-            $controller->login($_POST['login'],$_POST['password']);
+            $user = $controller->login($_POST['login'],$_POST['password']);
+            if($user == false){
+                require('./view/loginPage.php');
+            }else{
+                header("LOCATION: http://localhost:8888/rendu/index.php?action=dashboard");
+            }
         }
         break;
     case 'createAccount':
