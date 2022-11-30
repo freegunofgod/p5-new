@@ -15,4 +15,7 @@ abstract class DbManager{
         return $this->bdd;
     }
 
+    protected function getLastInsertId(){
+        return $this->bdd->lastInsertId();
+    }
 }

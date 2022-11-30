@@ -1,18 +1,20 @@
-<?php $title = "dashboard"; ?>
-
+<?php $title = "add post"; ?>
 <?php ob_start(); ?>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#1">Accueil</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#2">Articles</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=dashboard">Accueil</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=addPost">Ajouter un article</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=viewPost">Voir les article</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Commentaires</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#4">Mon profil</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#5">Se déconnecter</a>
             </div>
+
         </div>
+        <!-- Page content wrapper-->
         <!-- Page content wrapper-->
         <div id="page-content-wrapper">
             <!-- Top navigation-->
@@ -39,20 +41,21 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h1 class="mt-4">Simple Sidebar</h1>
-                <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-                <p>
-                    Make sure to keep all page content within the
-                    <code>#page-content-wrapper</code>
-                    . The top navbar is optional, and just for demonstration. Just create an element with the
-                    <code>#sidebarToggle</code>
-                    ID which will toggle the menu when clicked.
-                </p>
+                <?php 
+
+                var_dump($posts);
+
+                foreach ($posts as $post){?>
+                
+                    <?php var_dump($post) ?>
+                    <br>
+
+                <?php } ?>
+
             </div>
         </div>
     </div>
 
-
 <?php $content = ob_get_clean(); ?>
 
-<?php require('layout.php') ?>
+<?php require('./view/layout.php') ?>

@@ -78,4 +78,4 @@ if(!isset($loggedUser)){ ?>
   <?php $content = ob_get_clean();
 }
 
-require('layout.php') ?>
+require('./view/layout.php') ?>

@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/rendu/assets/css/homepage.css" rel="stylesheet" />
-        <?php if($title == 'dashboard'){
+        <?php if($title == 'dashboard' || $title == 'add post'){
             echo('<link href="/rendu/assets/css/dashboard.css" rel="stylesheet" />');
         }?>
 
@@ -45,7 +45,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <?php 
-        if($title == 'dashboard'){
+        if($title == 'dashboard' || $title == 'add post'){
             echo('<script src="assets/js/dashboard.js"></script>');  
         }?>
     </body>

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'model/UserManager.php';
+require_once 'model/PostManager.php';
 
 class Controller {
     public function homePage(){
@@ -21,5 +22,18 @@ class Controller {
     public function createUser($login,$password,$email){
         $userManager = new UserManager();
         $userManager->createUser($login,$password,$email);
+    }
+
+    //Correcte using of controller
+    public function createPost($title,$content,$chapo){
+        $postManager = new PostManager();
+        $postManager->createPost($title,$content,$chapo);
+    }
+    
+    public function getPosts(){
+        $postManager = new PostManager();
+        $posts = $postManager->getPosts();
+
+        return $posts;
     }
 }

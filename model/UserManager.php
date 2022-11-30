@@ -71,7 +71,7 @@ class UserManager extends DbManager {
         //If failure
             //Sending error message
 
-        require('./view/createAccountPage.php');
+        require('./view/login/createAccountPage.php');
     }
 
     public function deleteUser(){
