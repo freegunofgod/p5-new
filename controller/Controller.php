@@ -44,12 +44,8 @@ class Controller {
 
     public function updatePost($postID, $title,$content,$chapo){
         $postManager = new PostManager();
-
         $post = $postManager->getPost($postID);
-
         $postManager->updatePost($title, $content, $chapo, $postID);
-
-        return $post;
     }
 
     public function deletePost($postID){

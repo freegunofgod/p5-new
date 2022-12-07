@@ -32,13 +32,6 @@ switch ($page) {
     case 'dashboard':
         require('./view/dashboard/dashboard.php');
         break;
-    case 'addPost':
-        if(!$_POST){
-            require('./view/post/addPost.php');
-        }else{
-            $controller->createPost($_POST['postTitle'],$_POST['postContent'],$_POST['postChapo']);
-        }
-        break;
     case 'viewPosts':
         $posts = $controller->getPosts();
         require('./view/post/viewPosts.php');
@@ -67,6 +60,13 @@ switch ($page) {
 
         require('./view/post/deletePost.php');
 
+        break;
+    case 'addPost':
+        if(!$_POST){
+            require('./view/post/addPost.php');
+        }else{
+            $controller->createPost($_POST['postTitle'],$_POST['postContent'],$_POST['postChapo']);
+        }
         break;
     default:
         $controller->homePage();

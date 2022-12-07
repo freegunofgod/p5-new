@@ -41,7 +41,7 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2>Post supprimer</h2>
+                <h1 class="mt-4">Post supprimer</h1>
                 <p>Bravo, vous venez de supprimer un post. Ce n'était pas prévu ? Et bien c'est mort pour le récup</p>
                 
                 <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'article</a>

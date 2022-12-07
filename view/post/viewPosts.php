@@ -41,6 +41,7 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
+                <h1 class="mt-4">List of article</h1>
                 <?php 
 
                 foreach ($posts as $post){?>

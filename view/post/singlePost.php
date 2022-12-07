@@ -41,7 +41,7 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2><?=  $post['title'] ?></h2>
+                <h1 class="mt-4"><?=  $post['title'] ?></h1>
                 <br>
                 <h3>Chapo de l'article</h3>
                 <p><?= $post['chapo'] ?></p>
