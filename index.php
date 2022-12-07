@@ -39,9 +39,14 @@ switch ($page) {
             $controller->createPost($_POST['postTitle'],$_POST['postContent'],$_POST['postChapo']);
         }
         break;
-    case 'viewPost':
+    case 'viewPosts':
         $posts = $controller->getPosts();
-        require('./view/post/viewPost.php');
+        require('./view/post/viewPosts.php');
+        break;
+    case 'viewPost':
+        $postID = $_GET['postID'];
+        $post = $controller->getPost($postID);
+        require('./view/post/singlePost.php');
         break;
     default:
         $controller->homePage();

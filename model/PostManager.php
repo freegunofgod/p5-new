@@ -4,15 +4,15 @@ require_once('DbManager.php');
 
 class PostManager extends DbManager {
 
-    public function verifPostTitle($input){
+    public function verifPostTitle(string $input){
 
-        $sql = $this->dbConnect()->prepare("SELECT * FROM posts WHERE title = ? ");
+        $sql = $this->dbConnect()->prepare("SELECT * FROM `posts` WHERE `title` = ? ");
 
-        $sql->execute(array($input)); //(array($colonne, $input)
+        $sql->execute(array($input));
 
         $rowCountSql = $sql->rowCount();
 
-        if($rowCountSql > 0){
+        if($rowCountSql >= 1){
             return false;
         }else{
             return true;
@@ -23,12 +23,11 @@ class PostManager extends DbManager {
 
         try{
             //Get connect with database //SQL search
-        $sql = $this->Dbconnect()->prepare("SELECT * FROM posts WHERE id=?");
+        $sql = $this->Dbconnect()->prepare("SELECT * FROM posts WHERE id= ? ");
 
         //Execture Query with fake data
         $sql->execute(array($postID));
 
-        // throw new Exception('Error de connexion modèle  PostManager');
         }catch(Exception $e){
             echo('error' . $e->getMessage());
         }
@@ -40,14 +39,13 @@ class PostManager extends DbManager {
 
         try{
             //Get connect with database //SQL search
-            $sql = $this->Dbconnect()->prepare("SELECT title FROM posts");
+            $sql = $this->Dbconnect()->prepare("SELECT * FROM posts");
 
             //Execture Query with fake data
             $sql->execute();
 
-            throw new Exception('Error de connexion modèle  PostManager');
         }catch(Exception $e){
-            echo('error' . $e->getMessage());
+            throw new Exception('Error : impossible de récupérer les posts dans PostManager');
         }
 
         return $sql->fetchAll();
@@ -56,9 +54,11 @@ class PostManager extends DbManager {
     public function createPost($title,$chapo,$content){
 
         try {
+
             $verif = $this->verifPostTitle($title);
-            if($verif === false){
-                $error = 'Title is taken';
+
+            if($verif == false){
+                $error = 'Title is already taken';
             }else{
                 $sql = $this->Dbconnect()->prepare("INSERT INTO posts (title,chapo,content) values(?, ?, ?)");
 

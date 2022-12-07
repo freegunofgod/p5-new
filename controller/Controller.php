@@ -36,4 +36,10 @@ class Controller {
 
         return $posts;
     }
+    public function getPost($postID){
+        $postManager = new PostManager();
+        $post = $postManager->getPost($postID);
+
+        return $post;
+    }
 }

@@ -8,7 +8,7 @@
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=dashboard">Accueil</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=addPost">Ajouter un article</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=viewPost">Voir les article</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=viewPosts">Voir les article</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Commentaires</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#4">Mon profil</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#5">Se déconnecter</a>
@@ -40,7 +40,7 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h1 class="mt-4">Simple Sidebar</h1>
+                <h1 class="mt-4">Espace d'administration</h1>
                 <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
                 <p>
                     Make sure to keep all page content within the

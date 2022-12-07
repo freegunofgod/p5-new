@@ -41,38 +41,16 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h1 class="mt-4">Add Post</h1>
-                <form action="#" method="POST">
-                    <div class="mb-3">
-                        <label for="post-title" class="form-label">Post title</label>
-                        <input type="text" class="form-control" id="post-title" name="postTitle" aria-describedby="post-title-help">
-                        <div id="post-title-help" class="form-text">Don't use an existing one !</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="post-content-input" class="form-label">Content</label>
-                        <input type="text" name="postContent" class="form-control" id="post-content-input">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-check-label" for="post-chapo-input">Chapô</label>
-                        <input type="text" name="postChapo"  class="form-control" id="post-chapo-input">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <?php 
 
-                <?php if (isset($error)): ?>
-              
-              <div class="alert alert-danger" role="alert">
-              <span>Erreur : </span><span><?= $error ?></span>
-              </div>
-      
-            <?php elseif (isset($success)): ?>
-                <div class="alert alert-success" role="alert">
-                    <span>Post ID : <?= $postID ?></span><br> 
-                    <span>Message : <?= $success ?></span><br> 
-                    <a href="index.php/?action=viewPost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Voir l'article</a>
-                </div>
-            <?php endif ?>
-            
+                foreach ($posts as $post){?>
+                                    
+                    <a href="?action=viewPost&postID=<?= $post['id'] ?>">
+                        <h2><?=  $post['title'] ?></h2>
+                    </a>
+
+                <?php } ?>
+
             </div>
         </div>
     </div>
