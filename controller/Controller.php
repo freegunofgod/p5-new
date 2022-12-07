@@ -18,13 +18,12 @@ class Controller {
 
         return $user;
     }
-    //Correcte using of controller
+
     public function createUser($login,$password,$email){
         $userManager = new UserManager();
         $userManager->createUser($login,$password,$email);
     }
 
-    //Correcte using of controller
     public function createPost($title,$content,$chapo){
         $postManager = new PostManager();
         $postManager->createPost($title,$content,$chapo);
@@ -41,5 +40,20 @@ class Controller {
         $post = $postManager->getPost($postID);
 
         return $post;
+    }
+
+    public function updatePost($postID, $title,$content,$chapo){
+        $postManager = new PostManager();
+
+        $post = $postManager->getPost($postID);
+
+        $postManager->updatePost($title, $content, $chapo, $postID);
+
+        return $post;
+    }
+
+    public function deletePost($postID){
+        $postManager = new PostManager();
+        $postManager->deletePost($postID);
     }
 }

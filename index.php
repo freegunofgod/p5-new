@@ -48,6 +48,26 @@ switch ($page) {
         $post = $controller->getPost($postID);
         require('./view/post/singlePost.php');
         break;
+    case 'updatePost':
+        $postID = $_GET['postID'];
+        $post = $controller->getPost($postID);
+
+        if(!$_POST){
+            $postID = $_GET['postID'];
+            $post = $controller->getPost($postID);
+        }else{
+            $controller->updatePost($postID, $_POST['postTitle'], $_POST['postChapo'], $_POST['postContent']);            
+        }
+
+        require('./view/post/updatePost.php');
+        break;
+    case 'deletePost':
+        $postID = $_GET['postID'];
+        $post = $controller->deletePost($postID);
+
+        require('./view/post/deletePost.php');
+
+        break;
     default:
         $controller->homePage();
 }

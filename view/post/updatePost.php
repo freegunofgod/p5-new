@@ -41,22 +41,22 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h1 class="mt-4">Add Post</h1>
+                <h1 class="mt-4">Update a Post</h1>
                 <form action="#" method="POST">
                     <div class="mb-3">
                         <label for="post-title" class="form-label">Post title</label>
-                        <input type="text" class="form-control" id="post-title" name="postTitle" aria-describedby="post-title-help">
+                        <input type="text" class="form-control" id="post-title" name="postTitle" aria-describedby="post-title-help" value="<?= $post['title'] ?>">
                         <div id="post-title-help" class="form-text">Don't use an existing one !</div>
                     </div>
                     <div class="mb-3">
                         <label for="post-content-input" class="form-label">Content</label>
-                        <input type="text" name="postContent" class="form-control" id="post-content-input">
+                        <input type="text" name="postContent" class="form-control" id="post-content-input" value="<?= $post['content'] ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-check-label" for="post-chapo-input">Chapô</label>
-                        <input type="text" name="postChapo"  class="form-control" id="post-chapo-input">
+                        <input type="text" name="postChapo"  class="form-control" id="post-chapo-input" value="<?= $post['chapo'] ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
 
                 <?php if (isset($error)): ?>

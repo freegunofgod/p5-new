@@ -78,11 +78,41 @@ class PostManager extends DbManager {
         require('./view/post/addPost.php');
     }
 
-    public function deletePost(){
-        //delete an Post
+    public function deletePost($postID){
+        $sql = $this->Dbconnect()->prepare("DELETE FROM `posts` WHERE `id` = ? ");
+
+        //Execture Query
+        $sql = $sql->execute(array($postID));
+
+        if($sql == true){
+            $success = 'Votre post a bien été supprimé.';
+        }else{
+            throw new Exception('Erreur execution');
+        }
     }
 
-    public function updatePost(){
-        //update Post information
+    public function updatePost($title,$content,$chapo, $postID){
+        try {
+            $verif = $this->verifPostTitle($title);
+
+            if($verif == false){
+                $error = 'Title is already taken';
+            
+            }else{
+                $sql = $this->Dbconnect()->prepare("UPDATE `posts` SET `title` = ? ,`chapo` = ? ,`content` = ? WHERE `id` = ? ");
+                //Execture Query
+
+                $sql = $sql->execute(array($title, $chapo, $content, $postID));
+
+                if($sql == true){
+                    $success = 'Votre post a bien été modifier : ' . $title . ' ';
+
+                }else{
+                    throw new Exception('Erreur execution');
+                }
+            }
+        } catch (Exception $e) {
+            echo 'Échec lors de la modification du post : ' . $e->getMessage();
+        }
     }
 }

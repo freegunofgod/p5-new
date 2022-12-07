@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/rendu/assets/css/homepage.css" rel="stylesheet" />
-        <?php if($title == 'dashboard' || $title == 'add post' || $title == 'view post'){
+        <?php if($title == 'dashboard' || $title == 'add post' || $title == 'view post' || $title == 'update post' || $title == 'delete post' ){
             echo('<link href="/rendu/assets/css/dashboard.css" rel="stylesheet" />');
         }?>
 

@@ -1,4 +1,4 @@
-<?php $title = "view post"; ?>
+<?php $title = "delete post"; ?>
 <?php ob_start(); ?>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
@@ -41,13 +41,8 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2><?=  $post['title'] ?></h2>
-                <br>
-                <h3>Chapo de l'article</h3>
-                <p><?= $post['chapo'] ?></p>
-                <br>
-                <h3>Contenu de l'article</h3>
-                <p><?= $post['content'] ?></p>
+                <h2>Post supprimer</h2>
+                <p>Bravo, vous venez de supprimer un post. Ce n'était pas prévu ? Et bien c'est mort pour le récup</p>
                 
                 <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'article</a>
                 <a href="index.php/?action=deletePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Supprimer l'article</a>
