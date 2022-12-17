@@ -4,6 +4,11 @@ require_once 'model/UserManager.php';
 require_once 'model/PostManager.php';
 
 class Controller {
+    
+    public function __construct(){
+        session_start();
+    }
+    
     public function homePage(){
         require 'view/homePage.php';
     }
@@ -42,7 +47,7 @@ class Controller {
         return $post;
     }
 
-    public function updatePost($postID, $title,$content,$chapo){
+    public function updatePost( $title, $content, $chapo, $postID){
         $postManager = new PostManager();
         $post = $postManager->getPost($postID);
         $postManager->updatePost($title, $content, $chapo, $postID);

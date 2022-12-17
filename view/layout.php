@@ -25,13 +25,21 @@
             <div class="container px-5">
                 <a class="navbar-brand" href="/rendu/index.php">My WebSite</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.php?action=createAccount">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php?action=login">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php?action=dashboard">Dashboard</a></li>
-                    </ul>
-                </div>
+                <?php if(isset($_SESSION['user'])){ ?>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.php?action=dashboard">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Logout</a></li>
+                        </ul>
+                    </div>
+                <?php }else{ ?>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.php?action=createAccount">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?action=login">Log In</a></li>
+                        </ul>
+                    </div>
+                <?php } ?>
             </div>
         </nav>
 

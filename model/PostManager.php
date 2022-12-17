@@ -91,7 +91,7 @@ class PostManager extends DbManager {
         }
     }
 
-    public function updatePost($title,$content,$chapo, $postID){
+    public function updatePost($title, $content, $chapo, $postID){
         try {
             $verif = $this->verifPostTitle($title);
 

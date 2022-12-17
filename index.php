@@ -18,10 +18,18 @@ switch ($page) {
             if($user == false){
                 require('./view/login/loginPage.php');
             }else{
+                $_SESSION['user'] = $_POST['login'];
+                $_SESSION['role'] = $user['role'];
                 header("LOCATION: http://localhost:8888/rendu/index.php?action=dashboard");
             }
         }
         break;
+    case 'logout':
+        session_unset();
+        session_destroy();
+
+        $controller->homePage();
+
     case 'createAccount':
         if(!$_POST){
             require('./view/login/createAccountPage.php');
@@ -30,7 +38,11 @@ switch ($page) {
         }
         break;
     case 'dashboard':
-        require('./view/dashboard/dashboard.php');
+        if($_SESSION['user'] && $_SESSION['role'] == 'admin'){
+            require('./view/dashboard/dashboard.php');
+        }else{
+            header("LOCATION: http://localhost:8888/rendu/index.php?action=login");
+        }
         break;
     case 'viewPosts':
         $posts = $controller->getPosts();
@@ -43,13 +55,12 @@ switch ($page) {
         break;
     case 'updatePost':
         $postID = $_GET['postID'];
-        $post = $controller->getPost($postID);
 
         if(!$_POST){
-            $postID = $_GET['postID'];
             $post = $controller->getPost($postID);
-        }else{
-            $controller->updatePost($postID, $_POST['postTitle'], $_POST['postChapo'], $_POST['postContent']);            
+        }else{    
+            $controller->updatePost($_POST['postTitle'], $_POST['postChapo'], $_POST['postContent'], $postID);
+            $post = $controller->getPost($postID);            
         }
 
         require('./view/post/updatePost.php');

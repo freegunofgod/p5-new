@@ -5,12 +5,13 @@
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=dashboard">Accueil</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=addPost">Ajouter un article</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=viewPosts">Voir les article</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Commentaires</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#4">Mon profil</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#5">Se déconnecter</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=dashboard">Home</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=addPost">Add article</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=viewPosts">View articles</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Comments</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Users</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#4">My profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=logout">Logout</a>
             </div>
 
         </div>
@@ -51,7 +52,33 @@
                 
                 <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'article</a>
                 <a href="index.php/?action=deletePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Supprimer l'article</a>
+                
+                <div>
+                    <h2>Commentaires</h2>
 
+                    <form action="#" method="post">
+                    <div>
+                        <label for="author">Auteur</label><br />
+                        <input type="text" id="author" name="author" />
+                    </div>
+                    <div>
+                        <label for="comment">Commentaire</label><br />
+                        <textarea id="comment" name="comment"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" />
+                    </div>
+                    </form>
+
+                    <!-- <?php
+                    foreach ($comments as $comment) {
+                    ?>
+                        <p><strong><?= htmlspecialchars($comment->author) ?></strong> le <?= $comment->frenchCreationDate ?> (<a href="index.php?action=updateComment&id=<?= $comment->identifier ?>">modifier</a>)</p>
+                        <p><?= nl2br(htmlspecialchars($comment->comment)) ?></p>
+                    <?php
+                    }
+                    ?> -->
+                </div>
             </div>
         </div>
     </div>
