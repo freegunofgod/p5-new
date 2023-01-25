@@ -13,17 +13,21 @@
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="/rendu/assets/css/homepage.css" rel="stylesheet" />
+        <link href="/assets/css/homepage.css" rel="stylesheet" />
         <?php if($title == 'dashboard' || $title == 'add post' || $title == 'view post' || $title == 'update post' || $title == 'delete post' ){
-            echo('<link href="/rendu/assets/css/dashboard.css" rel="stylesheet" />');
+            echo('<link href="/assets/css/dashboard.css" rel="stylesheet" />');
         }?>
 
     </head>
+    <?php echo('Post data :' . var_dump($_GET) . '<br><br>'); ?>
+    <?php echo('Session data :' . var_dump($_SESSION) . '<br><br>'); ?>
+    <?php echo('Post data :' . var_dump($_POST) . '<br><br>'); ?>
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container px-5">
-                <a class="navbar-brand" href="/rendu/index.php">My WebSite</a>
+                <a class="navbar-brand" href="/index.php">My WebSite</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <?php if(isset($_SESSION['user'])){ ?>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -54,7 +58,7 @@
 
         <?php 
         if($title == 'dashboard' || $title == 'add post'){
-            echo('<script src="assets/js/dashboard.js"></script>');  
+            echo('<script src="/assets/js/dashboard.js"></script>');  
         }?>
     </body>
 </html>

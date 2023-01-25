@@ -2,6 +2,7 @@
 
 require_once 'model/UserManager.php';
 require_once 'model/PostManager.php';
+require_once 'model/CommentManager.php';
 
 class Controller {
     
@@ -33,7 +34,24 @@ class Controller {
         $postManager = new PostManager();
         $postManager->createPost($title,$content,$chapo);
     }
-    
+
+    public function createComment($postID, $content){
+        $commentManager = new CommentManager();
+        $commentManager->createComment($postID, $content);
+    }
+
+    public function getCommentsForPost($postID){
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getCommentsForPost($postID);
+
+        return $comments;
+    }
+    public function getAuhorsFromPost($auhtorID){
+        $userManager = new UserManager();
+        $authors = $userManager->getUserByID($auhtorID);
+
+        return $authors;
+    }
     public function getPosts(){
         $postManager = new PostManager();
         $posts = $postManager->getPosts();

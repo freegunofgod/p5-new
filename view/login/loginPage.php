@@ -4,7 +4,7 @@ $title = "Login page";
 
 ob_start();
 
-if(!isset($loggedUser)){ ?>
+if(!isset($_SESSION['user'])){ ?>
   <section class="gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -64,7 +64,7 @@ if(!isset($loggedUser)){ ?>
               <div class="mb-md-5 mt-md-4 pb-5">
 
                 <h2 class="fw-bold mb-2 text-uppercase">Login Page</h2>
-                <p class="text-white-50 mb-5">Vous êtes connecté en tant que <?= $loggedUser['email'] ?></p>
+                <p class="text-white-50 mb-5">Vous êtes connecté en tant que <?= $_SESSION['email'] ?></p>
 
                 <div class="form-outline form-white mb-4">
               </div>

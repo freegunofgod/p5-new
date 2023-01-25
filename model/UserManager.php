@@ -54,6 +54,40 @@ class UserManager extends DbManager {
         return $sql->fetch();
     }
 
+    public function getUserByID($userID){
+
+        try{
+            //Get connect with database //SQL search
+        $sql = $this->Dbconnect()->prepare("SELECT * FROM users WHERE id = ?");
+
+        //Execture Query with fake data
+        $sql->execute(array($userID));
+
+        // throw new Exception('Error de connexion modèle  UserManager');
+        }catch(Exception $e){
+            echo('error' . $e->getMessage());
+        }
+        
+        return $sql->fetchAll();
+    }
+
+    public function getUsers(){
+
+        try{
+            //Get connect with database //SQL search
+        $sql = $this->Dbconnect()->prepare("SELECT * FROM users");
+
+        //Execture Query with fake data
+        $sql->execute();
+
+        // throw new Exception('Error de connexion modèle  UserManager');
+        }catch(Exception $e){
+            echo('error' . $e->getMessage());
+        }
+        
+        return $sql->fetchAll();
+    }
+
     public function createUser($login,$password,$email){
 
         $login = htmlspecialchars( $login );

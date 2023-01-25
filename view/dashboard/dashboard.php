@@ -7,13 +7,13 @@ ob_start();
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Dashboard</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=dashboard">Home</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=addPost">Add article</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=viewPosts">View articles</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Comments</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#3">Users</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#4">My profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/rendu/index.php/?action=logout">Logout</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=dashboard">Home</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=addPost">Add article</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewPosts">View articles</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewComments">Comments</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewUsers">Users</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=userProfile">My profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=logout">Logout</a>
             </div>
         </div>
         <!-- Page content wrapper-->
