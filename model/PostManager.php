@@ -1,8 +1,11 @@
 <?php
 
-require_once('DbManager.php');
+require_once('Model.php');
 
-class PostManager extends DbManager {
+class PostManager extends Model {
+    public function getPosts(){
+        return $this->getAll('posts', 'Post');
+    }
 
     public function verifPostTitle(string $input){
 
@@ -33,22 +36,6 @@ class PostManager extends DbManager {
         }
         
         return $sql->fetch();
-    }
-
-    public function getPosts(){
-
-        try{
-            //Get connect with database //SQL search
-            $sql = $this->Dbconnect()->prepare("SELECT * FROM posts");
-
-            //Execture Query with fake data
-            $sql->execute();
-
-        }catch(Exception $e){
-            throw new Exception('Error : impossible de récupérer les posts dans PostManager');
-        }
-
-        return $sql->fetchAll();
     }
 
     public function createPost($title,$chapo,$content){

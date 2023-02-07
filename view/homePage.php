@@ -1,8 +1,4 @@
-<?php $title = "Home page"; ?>
-
-<?php ob_start(); ?>
-
- <!-- Header-->
+<!-- Header-->
 <header class="masthead text-center text-white">
     <div class="masthead-content">
         <div class="container px-5">
@@ -66,7 +62,3 @@
         </div>
     </section>
 </main>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('./view/layout.php') ?>

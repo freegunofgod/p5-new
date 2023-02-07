@@ -1,8 +1,8 @@
 <?php
 
-require_once('DbManager.php');
+require_once('Model.php');
 
-class CommentManager extends DbManager {
+class CommentManager extends Model {
 
     public function createComment($postID, $content){
 
@@ -39,7 +39,6 @@ class CommentManager extends DbManager {
         return $sql->fetch();
     }
     public function getComments(){
-
         try{
             //Get connect with database //SQL search
             $sql = $this->Dbconnect()->prepare("SELECT * FROM comments");

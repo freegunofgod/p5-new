@@ -59,6 +59,9 @@ class Controller {
         return $posts;
     }
     public function getPost($postID){
+
+        //Faire la logique du poste ici
+        
         $postManager = new PostManager();
         $post = $postManager->getPost($postID);
 

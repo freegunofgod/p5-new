@@ -41,7 +41,7 @@ if(!isset($_SESSION['user'])){ ?>
           </div>
 
               <div>
-                <p class="mb-0 text-center">Don't have an account? <a href="index.php?action=createAccount" class="text-white-50 fw-bold">Sign Up</a>
+                <p class="mb-0 text-center">Don't have an account? <a href="/register" class="text-white-50 fw-bold">Sign Up</a>
                 </p>
               </div>
 

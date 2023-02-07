@@ -1,8 +1,8 @@
 <?php
 
-require_once('DbManager.php');
+require_once('Model.php');
 
-class UserManager extends DbManager {
+class UserManager extends Model {
 
     function verificationLabelPresent($input, $colonne){
         $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE ? = ?");

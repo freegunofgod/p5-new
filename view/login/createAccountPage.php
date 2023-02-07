@@ -23,7 +23,7 @@ ob_start();
               <div class="alert alert-success" role="alert">
                   <span><?= $success ?></span>
                   <br>    
-                  <a href="index.php?action=login" class="btn-back-index"><i class="fal fa-hand-point-right"></i> Redirection vers la page de connexion</a>
+                  <a href="/login" class="btn-back-index"><i class="fal fa-hand-point-right"></i> Redirection vers la page de connexion</a>
               </div>
       
                   

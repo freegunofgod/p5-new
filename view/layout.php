@@ -17,30 +17,33 @@
         <?php if($title == 'dashboard' || $title == 'add post' || $title == 'view post' || $title == 'update post' || $title == 'delete post' ){
             echo('<link href="/assets/css/dashboard.css" rel="stylesheet" />');
         }?>
+        <!-- Ajout blog  -->
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
 
     </head>
-    <?php echo('Post data :' . var_dump($_GET) . '<br><br>'); ?>
-    <?php echo('Session data :' . var_dump($_SESSION) . '<br><br>'); ?>
-    <?php echo('Post data :' . var_dump($_POST) . '<br><br>'); ?>
 
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container px-5">
-                <a class="navbar-brand" href="/index.php">My WebSite</a>
+                <a class="navbar-brand" href="/home">My WebSite</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <?php if(isset($_SESSION['user'])){ ?>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.php?action=dashboard">Dashboard</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Logout</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/dashboard>Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                         </ul>
                     </div>
                 <?php }else{ ?>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.php?action=createAccount">Sign Up</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.php?action=login">Log In</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/register">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                         </ul>
                     </div>
                 <?php } ?>
