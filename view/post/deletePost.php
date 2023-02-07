@@ -1,17 +1,16 @@
 <?php $title = "delete post"; ?>
-<?php ob_start(); ?>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=dashboard">Home</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=addPost">Add article</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewPosts">View articles</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewComments">Comments</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewUsers">Users</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=userProfile">My profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=logout">Logout</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Home</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/addPost">Add post</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/viewPosts">View posts</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/viewComments">Comments</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/viewUsers">Users</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/userProfile">My profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/logout">Logout</a>
             </div>
 
         </div>
@@ -45,13 +44,9 @@
                 <h1 class="mt-4">Post supprimer</h1>
                 <p>Bravo, vous venez de supprimer un post. Ce n'était pas prévu ? Et bien c'est mort pour le récup</p>
                 
-                <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'article</a>
-                <a href="index.php/?action=deletePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Supprimer l'article</a>
+                <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'post</a>
+                <a href="index.php/?action=deletePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Supprimer l'post</a>
 
             </div>
         </div>
     </div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('./view/layout.php') ?>

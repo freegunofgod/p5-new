@@ -3,7 +3,6 @@
 
     <?php
     $i = 1;
-    var_dump($comments);
     foreach ($comments as $comment) { ?>
     <div class="comment-author">
             <?= $comment['author_id']; ?>

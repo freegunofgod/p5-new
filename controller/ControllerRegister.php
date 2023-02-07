@@ -1,13 +1,14 @@
 <?php 
 
-Class ControllerRegister{
+Class ControllerRegister extends Controller{
 
     private $_postManager;
     private $_view;
 
     public function __construct($url){
         if(isset($url)){
-            require_once('./view/login/createAccountPage.php');
+            $this->_view = new View('login/register'); 
+            $this->_view->generate(array());
         }else{
             throw new \Exception ('page introuvable (login controller)');
         }

@@ -1,8 +1,7 @@
-<?php $title = "add post"; ?>
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+        <div class="sidebar-heading border-bottom bg-light">Dashboard</div>
         <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Home</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/addPost">Add post</a>
@@ -12,9 +11,7 @@
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/userProfile">My profile</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/logout">Logout</a>
         </div>
-
     </div>
-    <!-- Page content wrapper-->
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
         <!-- Top navigation-->
@@ -41,17 +38,10 @@
         </nav>
         <!-- Page content-->
         <div class="container-fluid">
-            <h1 class="mt-4">List of post</h1>
-            <?php 
-
-            foreach ($posts as $post){?>
-                                
-                <a href="?action=viewPost&postID=<?= $post['id'] ?>">
-                    <h2><?=  $post['title'] ?></h2>
-                </a>
-
-            <?php } ?>
-
+            <h1 class="mt-4">Espace d'administration</h1>
+            <p>Hello <?= $_SESSION['login']; ?><p>
+                Bienvenue sur l'administration du site.
+            </p>
         </div>
     </div>
 </div>

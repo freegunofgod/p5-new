@@ -13,7 +13,7 @@ class Router
     try {
       //chargement automatique des classes du dossier models
       spl_autoload_register(function ($class) {
-        if (file_exists('entities/' . $class . '.php')){
+        if (file_exists('entities/'. $class .'.php')){
           require_once('entities/'.$class.'.php');
         }elseif(file_exists('model/' . $class . '.php')){
           require_once('model/'.$class.'.php');
@@ -32,7 +32,7 @@ class Router
         //on recupere le premier parametre de url
         //on le met tout en miniscule
         //on met sa premiere lettre en majuscule
-        $controller = ucfirst(strtolower($url[0]));
+        $controller = ucwords(strtolower($url[0]));
 
         $controllerClass = "Controller".$controller;
 

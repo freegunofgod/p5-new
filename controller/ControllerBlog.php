@@ -1,19 +1,19 @@
 <?php 
 
-Class ControllerBlog{
+Class ControllerBlog extends Controller{
 
     private $_postManager;
     private $_view;
 
     public function __construct($url){
-            $this->articles();
+            $this->posts();
     }
 
-    private function articles(){
+    private function posts(){
         $this->_postManager = new PostManager;
-        $articles = $this->_postManager->getPosts();
-        $this->_view = new View('Blog'); 
-        $this->_view->generate(array('articles' => $articles));
+        $posts = $this->_postManager->getPosts();
+        $this->_view = new View('Blog');
+        $this->_view->generate(array('posts' => $posts));
     }
 } 
 ?>

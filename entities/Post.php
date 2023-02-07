@@ -1,20 +1,20 @@
 <?php 
 
 Class Post {
-
     private $_id;
     private $_title;
     private $_content;
     private $_chapo;
-    private $_date_creation;
+    private $_creation_date;
     private $_author;
+    private $_comments;
 
     public function __construct(array $data){
         $this->hydrate($data);
     }
     public function hydrate($data){
         foreach($data as $key=>$value){
-            $method = 'set'.ucfirst($key);
+            $method = 'set'.ucwords($key);
             if(method_exists($this, $method)){
                 $this->$method($value);
             }
@@ -35,13 +35,13 @@ Class Post {
     public function setChapo($chapo){
         $this->_chapo = $chapo;
     }
-    public function setAuthor(){
-        $this->_author = 'Henry';
+    public function setAuthor_Id($authorID){
+        $this->_author = $authorID;
     }
-    public function setCreationDate($creation_Date){
-        $this->_date_creation = $creation_Date;
+    public function setDate($date){
+        $date = date($date);
+        $this->_creation_date = $date;
     }
-
     public function id(){
         return $this->_id;
     }
@@ -55,10 +55,9 @@ Class Post {
         return $this->_chapo;
     }
     public function author(){
-        $this->_author = 'Henry';
         return $this->_author;
     }
     public function creationDate(){
-        return $this->_date_creation;
+        return $this->_creation_date;
     }
 }

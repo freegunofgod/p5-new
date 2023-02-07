@@ -1,6 +1,6 @@
 <?php 
 
-Class ControllerHome{
+Class ControllerHome extends Controller{
 
     private $_postManager;
     private $_view;

@@ -3,116 +3,100 @@
 require_once('Model.php');
 
 class UserManager extends Model {
+    public function getUser($login){
+        return $this->getOnebyName('users', 'User', $login);
+    }
 
-    function verificationLabelPresent($input, $colonne){
-        $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE ? = ?");
-        $sql->execute(array($colonne, $input));
-        $rowCountSql = $sql->rowCount();
+    // public function getUserByID($userID){
 
-        //if rowCountSQL > 0
+    //     try{
+    //         //Get connect with database //SQL search
+    //     $sql = $this->Dbconnect()->prepare("SELECT * FROM users WHERE id = ?");
 
-            //Checking wich column we check
+    //     //Execture Query with fake data
+    //     $sql->execute(array($userID));
 
-            //If email --> error email
-            //return error email message
-
-            //If login --> error login
-            //return error login message
+    //     // throw new Exception('Error de connexion modèle  UserManager');
+    //     }catch(Exception $e){
+    //         echo('error' . $e->getMessage());
+    //     }
         
-        //Else --> return success
-        //A faire sous forme de fonction
-        // $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE login = ?");
-        // $sql->execute(array($login));
-        // $rowCountSqlLogin = $sql->rowCount();
+    //     return $sql->fetchAll();
+    // }
 
-        // $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE email = ?");
-        // $sql->execute(array($email));
-        // $rowCountSqlEmail = $sql->rowCount();
+    // public function getUsers(){
 
-        // if ($rowCountSqlEmail != 0){
-        //     $error = 'Cette email est déjà pris :(';
-        //     require('./view/createAccountPage.php');
-        // }elseif($rowCountSqlLogin != 0) {
-        //     $error = 'Ce nom d\'utilisateur est déjà pris :(';
-        //     require('./view/createAccountPage.php');
-    }
+    //     try{
+    //         //Get connect with database //SQL search
+    //     $sql = $this->Dbconnect()->prepare("SELECT * FROM users");
 
-    public function getUser($login, $password){
+    //     //Execture Query with fake data
+    //     $sql->execute();
 
-        try{
-            //Get connect with database //SQL search
-        $sql = $this->Dbconnect()->prepare("SELECT * FROM users WHERE login=? and password=?");
-
-        //Execture Query with fake data
-        $sql->execute(array($login,$password));
-
-        // throw new Exception('Error de connexion modèle  UserManager');
-        }catch(Exception $e){
-            echo('error' . $e->getMessage());
-        }
+    //     // throw new Exception('Error de connexion modèle  UserManager');
+    //     }catch(Exception $e){
+    //         echo('error' . $e->getMessage());
+    //     }
         
-        return $sql->fetch();
-    }
+    //     return $sql->fetchAll();
+    // }
+    // function verificationLabelPresent($input, $colonne){
+    //         $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE ? = ?");
+    //         $sql->execute(array($colonne, $input));
+    //         $rowCountSql = $sql->rowCount();
 
-    public function getUserByID($userID){
+    //         //if rowCountSQL > 0
 
-        try{
-            //Get connect with database //SQL search
-        $sql = $this->Dbconnect()->prepare("SELECT * FROM users WHERE id = ?");
+    //             //Checking wich column we check
 
-        //Execture Query with fake data
-        $sql->execute(array($userID));
+    //             //If email --> error email
+    //             //return error email message
 
-        // throw new Exception('Error de connexion modèle  UserManager');
-        }catch(Exception $e){
-            echo('error' . $e->getMessage());
-        }
-        
-        return $sql->fetchAll();
-    }
+    //             //If login --> error login
+    //             //return error login message
+            
+    //         //Else --> return success
+    //         //A faire sous forme de fonction
+    //         // $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE login = ?");
+    //         // $sql->execute(array($login));
+    //         // $rowCountSqlLogin = $sql->rowCount();
 
-    public function getUsers(){
+    //         // $sql = $this->dbConnect()->prepare("SELECT * FROM users WHERE email = ?");
+    //         // $sql->execute(array($email));
+    //         // $rowCountSqlEmail = $sql->rowCount();
 
-        try{
-            //Get connect with database //SQL search
-        $sql = $this->Dbconnect()->prepare("SELECT * FROM users");
+    //         // if ($rowCountSqlEmail != 0){
+    //         //     $error = 'Cette email est déjà pris :(';
+    //         //     require('./view/createAccountPage.php');
+    //         // }elseif($rowCountSqlLogin != 0) {
+    //         //     $error = 'Ce nom d\'utilisateur est déjà pris :(';
+    //         //     require('./view/createAccountPage.php');
+    //     }
+    // public function createUser($login,$password,$email){
 
-        //Execture Query with fake data
-        $sql->execute();
+    //     $login = htmlspecialchars( $login );
+    //     $password = htmlspecialchars($password);
+    //     $email = htmlspecialchars($email);
 
-        // throw new Exception('Error de connexion modèle  UserManager');
-        }catch(Exception $e){
-            echo('error' . $e->getMessage());
-        }
-        
-        return $sql->fetchAll();
-    }
+    //     // Using verificationLabelPresent --> return
+    //     //if success
+    //         //Get connect with database //SQL search
+    //         $sql = $this->Dbconnect()->prepare("INSERT INTO users (login,password,email) values(?, ?, ?)");
+    //         //Execture Query
+    //         $sql->execute(array($login,$password,$email));
 
-    public function createUser($login,$password,$email){
+    //         $success = 'Votre compte a bien été crée :)';
+    //     //If failure
+    //         //Sending error message
 
-        $login = htmlspecialchars( $login );
-        $password = htmlspecialchars($password);
-        $email = htmlspecialchars($email);
+    //     require('./view/login/createAccountPage.php');
+    // }
 
-        // Using verificationLabelPresent --> return
-        //if success
-            //Get connect with database //SQL search
-            $sql = $this->Dbconnect()->prepare("INSERT INTO users (login,password,email) values(?, ?, ?)");
-            //Execture Query
-            $sql->execute(array($login,$password,$email));
+    // public function deleteUser(){
+    //     //delete an user
+    // }
 
-            $success = 'Votre compte a bien été crée :)';
-        //If failure
-            //Sending error message
-
-        require('./view/login/createAccountPage.php');
-    }
-
-    public function deleteUser(){
-        //delete an user
-    }
-
-    public function updateUser(){
-        //update user information
-    }
+    // public function updateUser(){
+    //     //update user information
+    // }
 }

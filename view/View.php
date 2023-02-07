@@ -30,4 +30,12 @@ class View {
             throw new \Exception('Fichier' . $file . ' introuvable en tant que view', 1);
         }
     }
+
+    public function generateForm($type){
+
+        $content = $this->generateFile($this->_file, []);
+
+        $view = $this->generateFile('view/' . $type . '/add' . $type . '.php', array('title' => $this->_template, 'content' => $content));
+
+    }
 }

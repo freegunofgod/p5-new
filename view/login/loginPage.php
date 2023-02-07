@@ -1,9 +1,4 @@
 <?php 
-
-$title = "Login page";
-
-ob_start();
-
 if(!isset($_SESSION['user'])){ ?>
   <section class="gradient-custom">
     <div class="container py-5 h-100">
@@ -52,9 +47,7 @@ if(!isset($_SESSION['user'])){ ?>
     </div>
   </section>
 
-  <?php $content = ob_get_clean();
-
-}else {?>
+<?php }else {?>
     <section class="gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -74,8 +67,4 @@ if(!isset($_SESSION['user'])){ ?>
       </div>
     </div>
   </section>
-
-  <?php $content = ob_get_clean();
-}
-
-require('./view/layout.php') ?>
+<?php }

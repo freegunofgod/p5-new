@@ -1,17 +1,16 @@
 <?php $title = "view post"; ?>
-<?php ob_start(); ?>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=dashboard">Home</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=addPost">Add article</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewPosts">View articles</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewComments">Comments</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=viewUsers">Users</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=userProfile">My profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/index.php/?action=logout">Logout</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Home</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/addPost">Add post</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/viewPosts">View posts</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/viewComments">Comments</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/viewUsers">Users</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/userProfile">My profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/logout">Logout</a>
             </div>
 
         </div>
@@ -44,14 +43,14 @@
             <div class="container-fluid">
                 <h1 class="mt-4"><?=  $post['title'] ?></h1>
                 <br>
-                <h3>Chapo de l'article</h3>
+                <h3>Chapo de l'post</h3>
                 <p><?= $post['chapo'] ?></p>
                 <br>
-                <h3>Contenu de l'article</h3>
+                <h3>Contenu de l'post</h3>
                 <p><?= $post['content'] ?></p>
                 
-                <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'article</a>
-                <a href="index.php/?action=deletePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Supprimer l'article</a>
+                <a href="index.php/?action=updatePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Modifier l'post</a>
+                <a href="index.php/?action=deletePost&postID=<?= $postID ?>" class="btn-back-index"><i class="fal fa-hand-point-right"></i>Supprimer l'post</a>
 
                 <?php 
                 require('./view/comment/postComments.php');
@@ -61,7 +60,3 @@
             </div>
         </div>
     </div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('./view/layout.php') ?>

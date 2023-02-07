@@ -20,7 +20,7 @@ abstract class Model
         }
     }
 
-    //creation d ela methode
+    //creation de la methode
     //de récupération de liste d'elements
     //dans la bdd 
     protected function getAll($table, $obj){
@@ -30,7 +30,7 @@ abstract class Model
         $req->execute();
 
         //on crée la variable data qui
-        //va cobntenir les données
+        //va obtenir les données
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
         // var contiendra les données sous forme d'objets
         $var[] = new $obj($data);
@@ -39,12 +39,25 @@ abstract class Model
         return $var;
     }
 
-    protected function getOne($table, $obj, $id)
+    protected function getOnebyId($table, $obj, $id)
     {
         $this->getBdd();
         $var = [];
-        $req = self::$_bdd->prepare("SELECT id, title, content, DATE_FORMAT(date, '%d/%m/%Y à %Hh%imin%ss') AS date FROM " .$table. " WHERE id = ?");
+        $req = self::$_bdd->prepare("SELECT *  FROM " .$table. " WHERE id = ?");
         $req->execute(array($id));
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $var[] = new $obj($data);
+        }
+        $req->closeCursor();
+        return $var;
+    }
+
+    protected function getOnebyName($table, $obj, $name)
+    {
+        $this->getBdd();
+        $var = [];
+        $req = self::$_bdd->prepare("SELECT *  FROM " .$table. " WHERE login = ?");
+        $req->execute(array($name));
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
         $var[] = new $obj($data);
         }

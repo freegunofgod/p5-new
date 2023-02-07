@@ -1,10 +1,3 @@
-<?php 
-
-$title = "Account Creation Page";
-
-ob_start();
-?>
-
 <section class="gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -66,6 +59,3 @@ ob_start();
     </div>
   </div>
 </section>
-
-<?php $content = ob_get_clean();
-require('./view/layout.php');
